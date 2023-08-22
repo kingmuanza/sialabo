@@ -1,4 +1,12 @@
+import 'package:crid/models/emprunt.model.dart';
+import 'package:crid/models/materiel.model.dart';
+import 'package:crid/pages/emprunt/emprunt.edit.materiel.page.dart';
+import 'package:crid/services/emprunt.service.dart';
+import 'package:crid/services/materiel.service.dart';
 import 'package:flutter/material.dart';
+
+import '../display/display.emprunt.dart';
+import '../display/display.materiel.dart';
 
 class AccueilPage extends StatefulWidget {
   const AccueilPage({super.key});
@@ -8,6 +16,21 @@ class AccueilPage extends StatefulWidget {
 }
 
 class _AccueilPageState extends State<AccueilPage> {
+  List<Materiel> materiels = [];
+  List<Emprunt> emprunts = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print("Je suis revenu à l'acceuil");
+    super.initState();
+    materiels = MaterielService().getAll();
+    emprunts = EmpruntService().getAll();
+    print("emprunts.length _AccueilPageState");
+    print(emprunts.length);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,10 +63,13 @@ class _AccueilPageState extends State<AccueilPage> {
               Container(
                 height: 400,
                 child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: emprunts.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return DisplayEmprunt();
+                    Emprunt emprunt = emprunts[index];
+                    return DisplayEmprunt(
+                      emprunt: emprunt,
+                    );
                   },
                 ),
               ),
@@ -69,13 +95,17 @@ class _AccueilPageState extends State<AccueilPage> {
                       ],
                     ),
                     Container(
-                      height: 200,
-                      child: ListView.builder(
-                        itemCount: 10,
-                        scrollDirection: Axis.horizontal,
-                        itemBuilder: (context, index) {
-                          return DisplayMateriel();
-                        },
+                      height: 1000,
+                      child: GridView.count(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        crossAxisCount: 8,
+                        children: List.generate(materiels.length, (index) {
+                          Materiel materiel = materiels[index];
+                          return DisplayMateriel(
+                            materiel: materiel,
+                          );
+                        }),
                       ),
                     ),
                   ],
@@ -85,38 +115,16 @@ class _AccueilPageState extends State<AccueilPage> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class DisplayEmprunt extends StatelessWidget {
-  const DisplayEmprunt({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 400,
-      color: Colors.grey,
-      width: 200,
-      margin: EdgeInsets.only(right: 16),
-    );
-  }
-}
-
-class DisplayMateriel extends StatelessWidget {
-  const DisplayMateriel({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      color: Colors.grey,
-      width: 200,
-      margin: EdgeInsets.only(right: 16),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const EmpruntEditMaterielPage(),
+            ),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
