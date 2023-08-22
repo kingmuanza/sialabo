@@ -1,0 +1,60 @@
+{
+    "emprunts": [
+        {
+            "id": "EMPRUNT1692723249620",
+            "retournee": false,
+            "personnel": {
+                "id": "PERSONNEL1692723242158",
+                "nomComplet": "Muanza Kangudie",
+                "poste": ""
+            },
+            "nom": "2023-08-22T00:00:00.000",
+            "retour": "2023-08-31T00:00:00.000",
+            "materiels": [
+                {
+                    "id": "",
+                    "image": "assets/images/homogeneiseurs_ov625_3-4_on.jpg",
+                    "nom": "Disperseur homogénéiseur OV 625 Digital"
+                },
+                {
+                    "id": "",
+                    "image": "assets/images/agroalimentaire_ks10003-4-284151.jpg",
+                    "nom": "Epurateur neutralisation des vapeurs toxiques"
+                },
+                {
+                    "id": "",
+                    "image": "assets/images/moineau_ugap_3809si.jpg",
+                    "nom": "Tensiomètre-cardiofréquencemètre brassard"
+                }
+            ]
+        },
+        {
+            "id": "EMPRUNT1692723344678",
+            "retournee": false,
+            "personnel": {
+                "id": "PERSONNEL1692723332794",
+                "nomComplet": "Muanza Kangudie",
+                "poste": ""
+            },
+            "nom": "2023-08-22T00:00:00.000",
+            "retour": "2023-08-31T00:00:00.000",
+            "materiels": [
+                {
+                    "id": "",
+                    "image": "assets/images/homogeneiseurs_ov625_3-4_on.jpg",
+                    "nom": "Disperseur homogénéiseur OV 625 Digital"
+                },
+                {
+                    "id": "",
+                    "image": "assets/images/agroalimentaire_ks10003-4-284151.jpg",
+                    "nom": "Epurateur neutralisation des vapeurs toxiques"
+                },
+                {
+                    "id": "",
+                    "image": "assets/images/moineau_ugap_3809si.jpg",
+                    "nom": "Tensiomètre-cardiofréquencemètre brassard"
+                }
+            ]
+        }
+    ]
+}

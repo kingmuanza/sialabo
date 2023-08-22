@@ -2,6 +2,7 @@ import 'package:crid/pages/accueil.page.dart';
 import 'package:crid/pages/connexion.page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,6 +10,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
+  static final LocalStorage storage = LocalStorage('sialabo.json');
 
   // This widget is the root of your application.
   @override

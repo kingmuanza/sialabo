@@ -43,36 +43,7 @@ class _AccueilPageState extends State<AccueilPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.only(bottom: 16.0),
-                      child: Text("Matériel emprunté récemment"),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(bottom: 16.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text("Voir tout"),
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                height: 400,
-                child: ListView.builder(
-                  itemCount: emprunts.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    Emprunt emprunt = emprunts[index];
-                    return DisplayEmprunt(
-                      emprunt: emprunt,
-                    );
-                  },
-                ),
-              ),
+              if (emprunts.length > 0) EmpruntsRecents(emprunts: emprunts),
               Container(
                 margin: const EdgeInsets.only(top: 32.0),
                 child: Column(
@@ -125,6 +96,53 @@ class _AccueilPageState extends State<AccueilPage> {
         },
         child: Icon(Icons.add),
       ),
+    );
+  }
+}
+
+class EmpruntsRecents extends StatelessWidget {
+  const EmpruntsRecents({
+    Key? key,
+    required this.emprunts,
+  }) : super(key: key);
+
+  final List<Emprunt> emprunts;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: Text("Matériel emprunté récemment"),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(bottom: 16.0),
+              child: TextButton(
+                onPressed: () {},
+                child: Text("Voir tout"),
+              ),
+            ),
+          ],
+        ),
+        Container(
+          height: 400,
+          child: ListView.builder(
+            itemCount: emprunts.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              Emprunt emprunt = emprunts[index];
+              return DisplayEmprunt(
+                emprunt: emprunt,
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }

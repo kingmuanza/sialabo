@@ -21,7 +21,7 @@ class Emprunt {
   Emprunt.fromJSON(Map<String, dynamic> json) {
     id = json["id"];
     retournee = json["retournee"];
-    personnel = Personnel.fromJSON(json["retournee"]);
+    personnel = Personnel.fromJSON(json["personnel"]);
     date = DateTime.parse(json["date"]);
     retour = DateTime.parse(json["retour"]);
     materiels = materielsFromJSON(json["materiels"]);
@@ -32,7 +32,7 @@ class Emprunt {
       "id": id,
       "retournee": retournee,
       "personnel": personnel.toJSON(),
-      "nom": date.toIso8601String(),
+      "date": date.toIso8601String(),
       "retour": retour.toIso8601String(),
       "materiels": materielsToJSON(materiels),
     };
