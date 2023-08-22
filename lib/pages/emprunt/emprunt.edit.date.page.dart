@@ -169,7 +169,7 @@ class _EmpruntEditDatePageState extends State<EmpruntEditDatePage> {
 
                 EmpruntService().add(emprunt);
 
-                Navigator.of(context).push(
+                Navigator.of(context).pushReplacement(
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => AccueilPage(),
                   ),

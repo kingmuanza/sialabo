@@ -5,6 +5,7 @@ import 'package:crid/services/emprunt.service.dart';
 import 'package:crid/services/materiel.service.dart';
 import 'package:flutter/material.dart';
 
+import '../components/menu.gauche.dart';
 import '../display/display.emprunt.dart';
 import '../display/display.materiel.dart';
 
@@ -34,7 +35,7 @@ class _AccueilPageState extends State<AccueilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(),
+      drawer: MenuGauche(),
       appBar: AppBar(
         title: Text("Accueil"),
       ),

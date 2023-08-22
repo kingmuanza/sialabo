@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         fontFamily: 'Poppins',
       ),
-      home: const AccueilPage(),
+      home: const ConnexionPage(),
     );
   }
 }
