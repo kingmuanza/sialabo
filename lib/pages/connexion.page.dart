@@ -1,5 +1,11 @@
 import 'package:crid/pages/accueil.page.dart';
+import 'package:crid/pages/emprunt/emprunt.list.page.dart';
 import 'package:flutter/material.dart';
+
+import '../models/emprunt.model.dart';
+import '../models/materiel.model.dart';
+import '../services/emprunt.service.dart';
+import '../services/materiel.service.dart';
 
 class ConnexionPage extends StatefulWidget {
   const ConnexionPage({super.key});
@@ -9,6 +15,21 @@ class ConnexionPage extends StatefulWidget {
 }
 
 class _ConnexionPageState extends State<ConnexionPage> {
+  List<Materiel> materiels = [];
+  List<Emprunt> emprunts = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print("Je suis revenu à l'acceuil");
+    super.initState();
+    materiels = MaterielService().getAll();
+    emprunts = EmpruntService().getAll();
+    print("emprunts.length _AccueilPageState");
+    print(emprunts.length);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

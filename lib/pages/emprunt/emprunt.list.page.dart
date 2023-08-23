@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../display/display.emprunt.dart';
 import '../../models/emprunt.model.dart';
 import '../../services/emprunt.service.dart';
+import 'emprunt.edit.materiel.page.dart';
 
 class EmpruntList extends StatefulWidget {
   const EmpruntList({super.key});
@@ -54,6 +55,16 @@ class _EmpruntListState extends State<EmpruntList> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => const EmpruntEditMaterielPage(),
+            ),
+          );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
